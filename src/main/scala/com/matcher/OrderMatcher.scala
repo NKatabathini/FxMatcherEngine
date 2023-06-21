@@ -59,9 +59,9 @@ object OrderMatcher {
       val bestPriceOrder = findBestPriceOrder(order.order_type, matchingOrders)
       executeTrade(order, bestPriceOrder.get)
       orderBook = orderBook.filterNot(existingOrder => existingOrder == bestPriceOrder.get || existingOrder == order)
-      println("-------------------------------")
-      bestPriceOrder.foreach(println)
-      println("-------------------------------")
+//      println("-------------------------------")
+//      bestPriceOrder.foreach(println)
+//      println("-------------------------------")
 //      orderBook.foreach(println)
 
     }
@@ -71,7 +71,7 @@ object OrderMatcher {
     val matchPrice = order1.order_price
     val matchQuantity = order1.order_qty
     val matchTime = System.currentTimeMillis()
-    val matchDetails = s"Order ${order1.order_id} matched with ${order2.order_id} at price $matchPrice, quantity $matchQuantity, and time $matchTime"
+    val matchDetails = s"Order ${order2.order_id} matched with ${order1.order_id} time $matchTime, quantity $matchQuantity,at price $matchPrice"
     println(matchDetails)
 //    orderBook.filterNot(ordr => ordr.order_id == order1.order_id || ordr.order_id == order2.order_id).foreach(println)
   }
