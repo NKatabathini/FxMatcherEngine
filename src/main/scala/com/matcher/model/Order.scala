@@ -1,5 +1,6 @@
 package com.matcher.model
 
+
 case class Order(
                 order_id : Int,
                 username : String,

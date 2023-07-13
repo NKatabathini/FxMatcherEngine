@@ -17,3 +17,4 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.3.6"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.2"
