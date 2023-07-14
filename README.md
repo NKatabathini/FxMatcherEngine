@@ -1,6 +1,6 @@
 # FxMatcherEngine
 
-loan this in to IntelliJ Idea platform.
+load this in to IntelliJ Idea platform.
 Run this application as it is without provding any input and output files, input and output files are already specified if they are not given explicitly
 input csv file location : src/main/resources/exampleOrders.csv
 output csv file : outputOrders.csv(will be generated in main project file once application is executed)
