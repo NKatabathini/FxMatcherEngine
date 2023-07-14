@@ -11,17 +11,21 @@ import scala.{+:, ::}
 object OrderMatcher {
 
   var orderBook : List[Order] = List.empty
+  var outputOrders : String = "outputOrders.csv"
 
   def main(args: Array[String]): Unit = {
 
 
-
-    val output = "tartget/outputOrders.csv"
     //reading CSV file and generating an orderBook
     if(args.nonEmpty)
       readCSVFile(args(0))
       else
     readCSVFile("src/main/resources/exampleOrders.csv")
+
+    if(args.length >= 2)
+    outputOrders = args(1)
+
+
 
     // processing order from the orderBook by sequential order
     if(orderBook.nonEmpty)
@@ -62,7 +66,7 @@ object OrderMatcher {
     val matchTime = System.currentTimeMillis()
     val matchDetails = s"Order ${order2.order_id} matched with ${order1.order_id} time $matchTime, quantity $matchQuantity,at price $matchPrice"
     println(matchDetails)
-    writeToCSV("outputOrders.csv", Seq(order2.order_id.toString, order1.order_id.toString,matchTime.toString, matchQuantity.toString,matchPrice.toString))
+    writeToCSV(outputOrders, Seq(order2.order_id.toString, order1.order_id.toString,matchTime.toString, matchQuantity.toString,matchPrice.toString))
   }
 
   def findBestPriceOrder(orderType: String, matchingOrders : List[Order]): Option[Order] = {
